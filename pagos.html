@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservaciones de Paquetes</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #87CEEB, #00BFFF);
+            color: #333;
+        }
+        header {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 1.5em 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .package {
+            border: 2px solid #00BFFF;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        .package:hover {
+            transform: scale(1.03);
+        }
+        .package h3 {
+            margin: 0 0 10px;
+            color: #0077b6;
+            font-size: 1.8em;
+        }
+        .package p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            color: #fff;
+            background-color: #0077b6;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        .button:hover {
+            background-color: #005f89;
+            transform: scale(1.1);
+        }
+        .cart {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #00BFFF;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .cart h3 {
+            margin-top: 0;
+            color: #0077b6;
+            font-size: 1.8em;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item button {
+            padding: 8px 15px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        .cart-item button:hover {
+            background-color: #a71d2a;
+            transform: scale(1.1);
+        }
+        .checkout {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            text-align: center;
+        }
+        .checkout:hover {
+            background-color: #218838;
+            transform: scale(1.1);
+        }
+        .payment-form {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #00BFFF;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .payment-form h3 {
+            margin: 0 0 10px;
+            color: #0077b6;
+            font-size: 1.8em;
+        }
+        .payment-form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 1.1em;
+        }
+        .payment-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .payment-form button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #0077b6;
+            color: #fff;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        .payment-form button:hover {
+            background-color: #005f89;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reservaciones de Paquetes</h1>
+		<a href="index.html"  class="button">PAGINA PRINCIPAL</a>
+    </header>
+    <div class="container">
+        <div class="package">
+            <h3>Paquete Básico&nbsp;</h3>
+            <p>Incluye 3 dias, 2 noches, transporte terrestre en autobús o van turística. Hospedaje en hotel 3 estrellas (habitación doble). Un desayuno incluido por noche de hospedaje. Tour guiado por los principales atractivos turísticos.</p>
+            <p><strong>Precio:</strong> $2,500 mxn p.p.</p>
+            <button class="button" onclick="addToCart('Paquete Básico', 2500)">Añadir al carrito</button>
+        </div>
+        <div class="package">
+            <h3>Paquete Medio</h3>
+            <p>4 dias 3 noches transporte aéreo o terrestre según destino. Hospedaje en hotel 4 estrellas (habitación doble). Desayunos y una comida o cena incluida por día. Tour guiado por los atractivos principales y excursión especial. Traslados aeropuerto-hotel-aeropuerto (si aplica). Entradas a 2 sitios turísticos destacados (museos, zonas arqueológicas, etc.).</p>
+            <p><strong>Precio:</strong> $7,000 mxn p.p.</p>
+            <button class="button" onclick="addToCart('Paquete Medio', 7000)">Añadir al carrito</button>
+        </div>
+        <div class="package">
+            <h3>Paquete Premium</h3>
+            <p>5 dias 4 noches, transporte aéreo en clase turista (opción de upgrade). Hospedaje en hotel 5 estrellas o resort todo incluido. Plan todo incluido: comidas, bebidas y snacks. Excursión privada o experiencias exclusivas (tours en yates, visitas a viñedos, cenas gourmet, etc.). Traslados privados aeropuerto-hotel-aeropuerto. Acceso a actividades recreativas dentro del hotel (spa, deportes acuáticos, etc.).</p>
+            <p><strong>Precio:</strong> $15,000 mxn p.p.</p>
+            <button class="button" onclick="addToCart('Paquete Premium', 15000)">Añadir al carrito</button>
+        </div>
+
+        <div class="cart">
+            <h3>Carrito de Compras</h3>
+            <div id="cartItems"></div>
+            <p><strong>Total: $<span id="totalPrice">0</span></strong></p>
+            <button class="checkout" onclick="scrollToPaymentForm()">Pagar</button>
+        </div>
+
+        <div class="payment-form" id="paymentForm">
+            <h3>Información de Pago</h3>
+            <label for="cardNumber">Número de Tarjeta</label>
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+            <label for="expiryDate">Fecha de Expiración</label>
+            <input type="text" id="expiryDate" placeholder="MM/AA">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="123">
+            <button onclick="submitPayment()">Confirmar Pago</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            renderCart();
+        }
+
+        function removeFromCart(index) {
+            total -= cart[index].price;
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cartItems');
+            const totalPrice = document.getElementById('totalPrice');
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name} - $${item.price}</span>
+                        <button onclick="removeFromCart(${index})">Eliminar</button>
+                    </div>
+                `;
+            });
+            totalPrice.textContent = total;
+        }
+
+        function scrollToPaymentForm() {
+            if (cart.length === 0) {
+                alert('El carrito está vacío. Por favor añade un paquete antes de pagar.');
+                return;
+            }
+            document.getElementById('paymentForm').style.display = 'block';
+            document.getElementById('paymentForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitPayment() {
+            alert('Pago procesado correctamente. ¡Gracias por tu compra!');
+            cart = [];
+            total = 0;
+            renderCart();
+            document.getElementById('paymentForm').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

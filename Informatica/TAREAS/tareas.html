@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled Document</title>
+    <style>
+        body {
+            background-color: #9CC7A2; /* Fondo mate */
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        a {
+            display: block;
+            margin: 15px 0; /* Espaciado entre botones */
+            padding: 8px 5px; /* Espaciado interno del botón */
+            text-align: center;
+            text-decoration: none; /* Sin subrayado */
+            color: #ffffff; /* Texto blanco */
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 10px; /* Bordes redondeados */
+            background: linear-gradient(135deg, #216244, #142e25); /* Degradado del botón */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+            transition: all 0.3s ease; /* Transición suave */
+
+            /* Nuevas propiedades */
+            width: 110%; /* Los botones ocupan todo el ancho del contenedor */
+            max-width: 110px; /* Ancho máximo del botón (opcional) */
+        }
+
+        a:hover {
+            background: linear-gradient(135deg, #142e25, #216244); /* Invertir degradado al pasar el cursor */
+            transform: translateY(-3px); /* Efecto de "flotación" */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Más sombra */
+        }
+
+        a:active {
+            transform: translateY(1px); /* Efecto de "clic" */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Menos sombra */
+        }
+    </style>
+</head>
+
+<body>
+    <p><a href="../Articulo 1.pdf">Articulo 1</a></p>
+    <p><a href="../Articulo 2.pdf">Articulo 2</a></p>
+</body>
+</html>
